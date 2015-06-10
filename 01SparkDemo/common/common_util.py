@@ -3,13 +3,14 @@ get SparkContext
 """
 __author__ = 'python'
 
-from pyspark import SparkContext,SparkConf,SparkJobInfo,SparkStageInfo,SparkFiles
+import os
+
+from pyspark import SparkContext, SparkConf
+
 
 def get_sparkcontext():
-
     conf = SparkConf()
     conf.setAppName("sparkDemo")
-    conf.setMaster("local")
+    conf.setMaster("local[5]")
     spark_context = SparkContext(conf=conf)
     return spark_context
-
